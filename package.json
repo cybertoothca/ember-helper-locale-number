@@ -67,6 +67,7 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://docs.ember-helper-locale-number.cybertooth.io/#hbs"
   }
 }

@@ -9,8 +9,8 @@
 
 All modern browsers support the [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat)
 object and this add-on
-depends on that.  Check out the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat) 
-chart for more information.
+depends on that module and object.  Check out the [browser compatibility](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat) 
+chart at the bottom of this page for more information.
 
 ## Installation
 
@@ -29,8 +29,8 @@ ember install ember-helper-locale-number
 
 ## Usage
 
-Use the `currency-format`, `decimal-format`, or `percent-format` helpers that accept an
-number argument and then any number of key=value options.
+Use the `currency-format`, `decimal-format`, or `percent-format` helpers that accept a
+number argument and any number of key=value options; the options are described below.
 
 ### HBS
  
@@ -112,5 +112,3 @@ The maximum number of significant digits to use. Possible values are from 1 to 2
 
 <small>_The aforementioned options are derived from 
 [`Intl.NumberFormat`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat)._</small>
-
-

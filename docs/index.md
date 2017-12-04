@@ -22,8 +22,8 @@ ember install ember-helper-locale-number
 
 ## Upgrading
 
-When working through the Ember upgrade process, I recommend invoking the 
-`ember install` command once you are done in order to retrieve the latest version of the add-on.
+When working through the Ember upgrade process, I recommend completely re-installing this
+add-on in order to retrieve the latest version.
 
 ```bash
 ember install ember-helper-locale-number

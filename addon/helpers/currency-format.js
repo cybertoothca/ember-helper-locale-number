@@ -18,7 +18,7 @@ export function currencyFormat([number], options) {
   if (Ember.$.isEmptyObject(options)) {
     return formatter.format(number);
   } else {
-    return number.toLocaleString(undefined, Ember.assign({}, defaultOptions, options));
+    return number.toLocaleString(undefined, Ember.$.extend(defaultOptions, options));
   }
 }
 

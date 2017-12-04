@@ -1,5 +1,7 @@
 # ember-helper-locale-number
 
+[![npm version](http://badge.fury.io/js/ember-helper-locale-number.svg)](http://badge.fury.io/js/ember-helper-locale-number) ![downloads](https://img.shields.io/npm/dy/ember-helper-locale-number.svg) [![CircleCI](http://circleci.com/gh/cybertoothca/ember-helper-locale-number.svg?style=shield)](http://circleci.com/gh/cybertoothca/ember-helper-locale-number) [![Code Climate](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number/badges/gpa.svg)](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number) ![Dependencies](http://david-dm.org/cybertoothca/ember-helper-locale-number.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-helper-locale-number.svg)](http://emberobserver.com/addons/ember-helper-locale-number) [![License](http://img.shields.io/npm/l/ember-helper-locale-number.svg)](LICENSE.md)
+
 ## Requirements
 
 * Ember >= 1.13.0

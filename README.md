@@ -1,5 +1,11 @@
 # ember-helper-locale-number
 
+## Installation & Usage
+
+[Check out the docs](http://docs.ember-helper-locale-number.cybertooth.io)
+
+# Collaborator Information
+
 This README outlines the details of collaborating on this Ember addon.
 
 ## Installation

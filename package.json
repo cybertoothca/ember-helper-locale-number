@@ -1,17 +1,40 @@
 {
   "name": "ember-helper-locale-number",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "An optimized format number helper for currencies, decimal, and percent styles.  Uses `Intl.NumberFormat` and `toLocaleString()`.",
   "keywords": [
+    "format",
+    "locale",
+    "number",
+    "Intl.NumberFormat",
+    "currency-format",
+    "decimal-format",
+    "percent-format",
+    "number format",
+    "cybertooth",
     "ember-addon"
   ],
   "license": "MIT",
-  "author": "",
+  "author": {
+    "name": "cybertooth.io",
+    "email": "dev@cybertooth.io",
+    "url": "http://cybertooth.io"
+  },
+  "contributors": [
+    {
+      "name": "Dan Nelson",
+      "email": "dan@cybertooth.io",
+      "url": "https://nadnoslen.github.io/"
+    }
+  ],
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cybertoothca/ember-helper-locale-number.git"
+  },
   "scripts": {
     "build": "ember build",
     "start": "ember server",

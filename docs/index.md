@@ -1,6 +1,6 @@
 # ember-helper-locale-number
 
-[![npm version](http://badge.fury.io/js/ember-helper-locale-number.svg)](http://badge.fury.io/js/ember-helper-locale-number) ![downloads](https://img.shields.io/npm/dy/ember-helper-locale-number.svg) [![CircleCI](http://circleci.com/gh/cybertoothca/ember-helper-locale-number.svg?style=shield)](http://circleci.com/gh/cybertoothca/ember-helper-locale-number) [![Code Climate](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number/badges/gpa.svg)](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number) ![Dependencies](http://david-dm.org/cybertoothca/ember-helper-locale-number.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-helper-locale-number.svg)](http://emberobserver.com/addons/ember-helper-locale-number) [![License](http://img.shields.io/npm/l/ember-helper-locale-number.svg)](LICENSE.md)
+[![npm version](http://badge.fury.io/js/ember-helper-locale-number.svg)](http://badge.fury.io/js/ember-helper-locale-number) ![downloads](https://img.shields.io/npm/dy/ember-helper-locale-number.svg) [![CircleCI](http://circleci.com/gh/cybertoothca/ember-helper-locale-number.svg?style=shield)](http://circleci.com/gh/cybertoothca/ember-helper-locale-number) [![Code Climate](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number/badges/gpa.svg)](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number) ![Dependencies](http://david-dm.org/cybertoothca/ember-helper-locale-number.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-helper-locale-number.svg)](http://emberobserver.com/addons/ember-helper-locale-number) [![License](http://img.shields.io/npm/l/ember-helper-locale-number.svg)](https://github.com/cybertoothca/ember-helper-locale-number/blob/master/LICENSE.md)
 
 ## Requirements
 
@@ -39,25 +39,31 @@ number argument and any number of key=value options; the options are described b
 Here are some examples of using the helper in your hbs files: 
 
 ```handlebars {% raw %}
-{{currency-format 123}}  {{!-- $123.00 --}}
-{{currency-format 123456}}  {{!-- $123,456.00 --}}
-{{currency-format 123.45678}}  {{!-- $123.46 --}}
-{{currency-format 1234 minimumFractionDigits=3}}  {{!-- $1,234.000 --}}
+{{currency-format}}  {{!-- "" --}}
+{{currency-format "abc"}}  {{!-- "" --}}
+{{currency-format 123}}  {{!-- "$123.00" --}}
+{{currency-format 123456}}  {{!-- "$123,456.00" --}}
+{{currency-format 123.45678}}  {{!-- "$123.46" --}}
+{{currency-format 1234 minimumFractionDigits=3}}  {{!-- "$1,234.000" --}}
 ``` {% endraw %}
 
 
 ```handlebars {% raw %}
-{{decimal-format 123}}  {{!-- 123 --}}
-{{decimal-format 123456}}  {{!-- 123,456 --}}
-{{decimal-format 123.45678}}  {{!-- 123.457 --}}
-{{decimal-format 1234 minimumFractionDigits=3}}  {{!-- 1,234.000 --}}
+{{decimal-format}}  {{!-- "" --}}
+{{decimal-format "abc"}}  {{!-- "" --}}
+{{decimal-format 123}}  {{!-- "123" --}}
+{{decimal-format 123456}}  {{!-- "123,456" --}}
+{{decimal-format 123.45678}}  {{!-- "123.457" --}}
+{{decimal-format 1234 minimumFractionDigits=3}}  {{!-- "1,234.000" --}}
 ``` {% endraw %}
 
 ```handlebars {% raw %}
-{{percent-format 0.123}}  {{!-- 12% --}}
-{{percent-format 123.456}}  {{!-- 12346% --}}
-{{percent-format 123.45678}}  {{!-- 123.457% --}}
-{{percent-format 0.4567 minimumFractionDigits=1}}  {{!-- 45.7% --}}
+{{percent-format}}  {{!-- "" --}}
+{{percent-format "abc"}}  {{!-- "" --}}
+{{percent-format 0.123}}  {{!-- "12%" --}}
+{{percent-format 123.456}}  {{!-- "12346%" --}}
+{{percent-format 123.45678}}  {{!-- "123.457%" --}}
+{{percent-format 0.4567 minimumFractionDigits=1}}  {{!-- "45.7%" --}}
 ``` {% endraw %}
 
 ### JS

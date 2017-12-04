@@ -11,7 +11,7 @@ test('when formatting undefined', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting null', function (assert) {
@@ -19,7 +19,7 @@ test('when formatting null', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting a string', function (assert) {
@@ -27,7 +27,7 @@ test('when formatting a string', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting NaN', function (assert) {
@@ -35,7 +35,7 @@ test('when formatting NaN', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting infinity', function (assert) {
@@ -43,7 +43,7 @@ test('when formatting infinity', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '∞%');
+  assert.equal(this.$().text().trim(), '∞%');
 });
 
 test('when formatting blank', function (assert) {
@@ -51,23 +51,23 @@ test('when formatting blank', function (assert) {
 
   this.render(hbs`{{percent-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting a basic fraction', function (assert) {
   this.render(hbs`{{percent-format 0.123456789}}`);
 
-  assert.equal(this.$().html(), '12%');
+  assert.equal(this.$().text().trim(), '12%');
 });
 
 test('when formatting a large percentage with no grouping', function (assert) {
   this.render(hbs`{{percent-format 123.456789 useGrouping=false}}`);
 
-  assert.equal(this.$().html(), '12346%');
+  assert.equal(this.$().text().trim(), '12346%');
 });
 
 test('when formatting a large percentage with grouping', function (assert) {
   this.render(hbs`{{percent-format 123.456789 useGrouping=true}}`);
 
-  assert.equal(this.$().html(), '12,346%');
+  assert.equal(this.$().text().trim(), '12,346%');
 });

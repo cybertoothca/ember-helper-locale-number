@@ -10,7 +10,7 @@ test('when formatting undefined', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting null', function (assert) {
@@ -18,7 +18,7 @@ test('when formatting null', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting a string', function (assert) {
@@ -26,7 +26,7 @@ test('when formatting a string', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting NaN', function (assert) {
@@ -34,7 +34,7 @@ test('when formatting NaN', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting infinity', function (assert) {
@@ -42,7 +42,7 @@ test('when formatting infinity', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '∞');
+  assert.equal(this.$().text().trim(), '∞');
 });
 
 test('when formatting blank', function (assert) {
@@ -50,29 +50,29 @@ test('when formatting blank', function (assert) {
 
   this.render(hbs`{{decimal-format number}}`);
 
-  assert.equal(this.$().html(), '');
+  assert.equal(this.$().text().trim(), '');
 });
 
 test('when formatting an integer', function (assert) {
   this.render(hbs`{{decimal-format 123}}`);
 
-  assert.equal(this.$().html(), '123');
+  assert.equal(this.$().text().trim(), '123');
 });
 
 test('when formatting an integer with no grouping', function (assert) {
   this.render(hbs`{{decimal-format 123456 useGrouping=false}}`);
 
-  assert.equal(this.$().html(), '123456');
+  assert.equal(this.$().text().trim(), '123456');
 });
 
 test('when formatting an integer with grouping', function (assert) {
   this.render(hbs`{{decimal-format 123456 useGrouping=true}}`);
 
-  assert.equal(this.$().html(), '123,456');
+  assert.equal(this.$().text().trim(), '123,456');
 });
 
 test('when formatting a real', function (assert) {
   this.render(hbs`{{decimal-format 123.456789}}`);
 
-  assert.equal(this.$().html(), '123.457');
+  assert.equal(this.$().text().trim(), '123.457');
 });

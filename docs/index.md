@@ -2,6 +2,12 @@
 
 [![npm version](http://badge.fury.io/js/ember-helper-locale-number.svg)](http://badge.fury.io/js/ember-helper-locale-number) ![downloads](https://img.shields.io/npm/dy/ember-helper-locale-number.svg) [![CircleCI](http://circleci.com/gh/cybertoothca/ember-helper-locale-number.svg?style=shield)](http://circleci.com/gh/cybertoothca/ember-helper-locale-number) [![Code Climate](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number/badges/gpa.svg)](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number) ![Dependencies](http://david-dm.org/cybertoothca/ember-helper-locale-number.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-helper-locale-number.svg)](http://emberobserver.com/addons/ember-helper-locale-number) [![License](http://img.shields.io/npm/l/ember-helper-locale-number.svg)](https://github.com/cybertoothca/ember-helper-locale-number/blob/master/LICENSE.md)
 
+These helpers are optimized to format numbers according to the website visitor's locale.  A 
+singleton `Intl.NumberFormat` is used for all basic formatting.  Once a customized 
+formatting option (e.g. `useGrouping=false`) is passed to the helper, the number 
+instance's `toLocaleString()` method is invoked instead of the singleton `Intl.NumberFormat`.
+`toLocaleString()` is less performant.
+
 ## Requirements
 
 * Ember >= 1.13.0

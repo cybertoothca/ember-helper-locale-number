@@ -68,7 +68,6 @@ Here are some examples of using the helper in your hbs files:
 {{percent-format "abc"}}  {{!-- "" --}}
 {{percent-format 0.123}}  {{!-- "12%" --}}
 {{percent-format 123.456}}  {{!-- "12346%" --}}
-{{percent-format 123.45678}}  {{!-- "123.457%" --}}
 {{percent-format 0.4567 minimumFractionDigits=1}}  {{!-- "45.7%" --}}
 ``` {% endraw %}
 
@@ -88,7 +87,7 @@ currencyFormat(123.456, { currency: 'EUR'}); // "€123.46"
 import { decimalFormat } from 'ember-helper-locale-number/helpers/decimal-format';
 // ... somewhere in your js:
 decimalFormat(123456); // "123,456"
-decimalFormat(123456, { useGrouping: false }); // "123,456"
+decimalFormat(123456, { useGrouping: false }); // "123456"
 decimalFormat(123.456789); // "123.457"
 
 // using the percentFormat helper

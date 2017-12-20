@@ -22,7 +22,7 @@ This README outlines the details of collaborating on this Ember add-on.
 
 ## Installation
 
-* `git clone <repository-url>` this repository
+* `git clone git@github.com:cybertoothca/ember-helper-locale-number.git` this repository
 * `cd ember-helper-locale-number`
 
 

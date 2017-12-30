@@ -1,4 +1,4 @@
-/*jshint node:true*/
+/* eslint-env node */
 
 /**
  * By default, your tests will run in Chrome.

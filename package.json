@@ -1,7 +1,7 @@
 {
   "name": "ember-helper-locale-number",
-  "version": "1.0.0-rc.1",
-  "description": "An optimized format number helper for currencies, decimal, and percent styles.  Uses `Intl.NumberFormat` and `toLocaleString()`.",
+  "version": "1.0.0",
+  "description": "Three helpers optimized to format numbers according to the website visitor's locale.",
   "keywords": [
     "format",
     "locale",
@@ -67,6 +67,7 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "ember-addon": {
-    "configPath": "tests/dummy/config"
+    "configPath": "tests/dummy/config",
+    "demoURL": "http://docs.ember-helper-locale-number.cybertooth.io/#hbs"
   }
 }

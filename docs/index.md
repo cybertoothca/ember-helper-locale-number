@@ -2,6 +2,12 @@
 
 [![npm version](http://badge.fury.io/js/ember-helper-locale-number.svg)](http://badge.fury.io/js/ember-helper-locale-number) ![downloads](https://img.shields.io/npm/dy/ember-helper-locale-number.svg) [![CircleCI](http://circleci.com/gh/cybertoothca/ember-helper-locale-number.svg?style=shield)](http://circleci.com/gh/cybertoothca/ember-helper-locale-number) [![Code Climate](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number/badges/gpa.svg)](http://codeclimate.com/github/cybertoothca/ember-helper-locale-number) ![Dependencies](http://david-dm.org/cybertoothca/ember-helper-locale-number.svg) [![ember-observer-badge](http://emberobserver.com/badges/ember-helper-locale-number.svg)](http://emberobserver.com/addons/ember-helper-locale-number) [![License](http://img.shields.io/npm/l/ember-helper-locale-number.svg)](https://github.com/cybertoothca/ember-helper-locale-number/blob/master/LICENSE.md)
 
+These helpers are optimized to format numbers according to the website visitor's locale.  A 
+singleton `Intl.NumberFormat` is used for all basic formatting.  Once a customized 
+formatting option (e.g. `useGrouping=false`) is passed to the helper, the number 
+instance's `toLocaleString()` method is invoked instead of the singleton `Intl.NumberFormat`.
+`toLocaleString()` is less performant.
+
 ## Requirements
 
 * Ember >= 1.13.0
@@ -22,8 +28,8 @@ ember install ember-helper-locale-number
 
 ## Upgrading
 
-When working through the Ember upgrade process, I recommend invoking the 
-`ember install` command once you are done in order to retrieve the latest version of the add-on.
+When working through the Ember upgrade process, I recommend completely re-installing this
+add-on in order to retrieve the latest version.
 
 ```bash
 ember install ember-helper-locale-number
@@ -62,7 +68,6 @@ Here are some examples of using the helper in your hbs files:
 {{percent-format "abc"}}  {{!-- "" --}}
 {{percent-format 0.123}}  {{!-- "12%" --}}
 {{percent-format 123.456}}  {{!-- "12346%" --}}
-{{percent-format 123.45678}}  {{!-- "123.457%" --}}
 {{percent-format 0.4567 minimumFractionDigits=1}}  {{!-- "45.7%" --}}
 ``` {% endraw %}
 
@@ -82,7 +87,7 @@ currencyFormat(123.456, { currency: 'EUR'}); // "€123.46"
 import { decimalFormat } from 'ember-helper-locale-number/helpers/decimal-format';
 // ... somewhere in your js:
 decimalFormat(123456); // "123,456"
-decimalFormat(123456, { useGrouping: false }); // "123,456"
+decimalFormat(123456, { useGrouping: false }); // "123456"
 decimalFormat(123.456789); // "123.457"
 
 // using the percentFormat helper

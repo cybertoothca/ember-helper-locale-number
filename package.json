@@ -27,6 +27,9 @@
       "url": "https://nadnoslen.github.io/"
     }
   ],
+  "bugs": {
+    "url": "https://github.com/cybertoothca/ember-helper-locale-number/issues"
+  },
   "directories": {
     "doc": "doc",
     "test": "tests"

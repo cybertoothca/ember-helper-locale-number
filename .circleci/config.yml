@@ -1,0 +1,13 @@
+version: 2
+jobs:
+  ember_default:
+    docker:
+      - image: circleci/node:6.14.4-browsers
+    steps:
+      - checkout
+      - run:
+          name: Yarn Install
+          command: yarn install
+      - run:
+          name: Ember Try
+          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup

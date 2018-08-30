@@ -1,5 +1,38 @@
 version: 2
 jobs:
+  ember_lts_2_4:
+    docker:
+      - image: circleci/node:6.14.4-browsers
+    steps:
+      - checkout
+      - run:
+          name: Yarn Install
+          command: yarn install
+      - run:
+          name: Ember Try
+          command: ./node_modules/.bin/ember try:one ember-lts-2.4 --skip-cleanup
+  ember_lts_2_8:
+    docker:
+      - image: circleci/node:6.14.4-browsers
+    steps:
+      - checkout
+      - run:
+          name: Yarn Install
+          command: yarn install
+      - run:
+          name: Ember Try
+          command: ./node_modules/.bin/ember try:one ember-lts-2.8 --skip-cleanup
+  ember_lts_2_12:
+    docker:
+      - image: circleci/node:6.14.4-browsers
+    steps:
+      - checkout
+      - run:
+          name: Yarn Install
+          command: yarn install
+      - run:
+          name: Ember Try
+          command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
   ember_default:
     docker:
       - image: circleci/node:6.14.4-browsers
@@ -15,4 +48,5 @@ workflows:
   version: 2
   ember_try:
       jobs:
+        - ember_lts_2_4
         - ember_default

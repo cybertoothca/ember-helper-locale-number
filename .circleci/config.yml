@@ -11,3 +11,8 @@ jobs:
       - run:
           name: Ember Try
           command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
+workflows:
+  version: 2
+  ember_try:
+      jobs:
+        - ember_default

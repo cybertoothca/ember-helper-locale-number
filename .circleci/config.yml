@@ -1,5 +1,58 @@
 version: 2
 jobs:
+  ember_default:
+    docker:
+    - image: circleci/node:6.14.4-browsers
+    steps:
+    - checkout
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - save_cache:
+        key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        paths:
+        - ./node_modules
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
+  ember_release:
+    docker:
+    - image: circleci/node:6.14.4-browsers
+    steps:
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup
+  ember_beta:
+    docker:
+    - image: circleci/node:6.14.4-browsers
+    steps:
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup
+  ember_canary:
+    docker:
+    - image: circleci/node:6.14.4-browsers
+    steps:
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup
   ember_lts_2_4:
     docker:
       - image: circleci/node:6.14.4-browsers
@@ -33,20 +86,11 @@ jobs:
       - run:
           name: Ember Try
           command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
-  ember_default:
-    docker:
-      - image: circleci/node:6.14.4-browsers
-    steps:
-      - checkout
-      - run:
-          name: Yarn Install
-          command: yarn install
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
 workflows:
   version: 2
   ember_try:
       jobs:
-        - ember_lts_2_4
         - ember_default
+#        - ember_lts_2_4
+#        - ember_lts_2_8
+#        - ember_lts_2_12

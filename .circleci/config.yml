@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  ember_default:
+  build_with_cache:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
@@ -17,9 +17,11 @@ jobs:
         key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
         paths:
         - ./node_modules
+  ember_default:
+    steps:
     - run:
-        name: Ember Try
-        command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
+      name: Ember Try
+      command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
   ember_release:
     docker:
     - image: circleci/node:6.14.4-browsers
@@ -55,42 +57,45 @@ jobs:
         command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup
   ember_lts_2_4:
     docker:
-      - image: circleci/node:6.14.4-browsers
+    - image: circleci/node:6.14.4-browsers
     steps:
-      - checkout
-      - run:
-          name: Yarn Install
-          command: yarn install
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.4 --skip-cleanup
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-lts-2.4 --skip-cleanup
   ember_lts_2_8:
     docker:
-      - image: circleci/node:6.14.4-browsers
+    - image: circleci/node:6.14.4-browsers
     steps:
-      - checkout
-      - run:
-          name: Yarn Install
-          command: yarn install
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.8 --skip-cleanup
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-lts-2.8 --skip-cleanup
   ember_lts_2_12:
     docker:
-      - image: circleci/node:6.14.4-browsers
+    - image: circleci/node:6.14.4-browsers
     steps:
-      - checkout
-      - run:
-          name: Yarn Install
-          command: yarn install
-      - run:
-          name: Ember Try
-          command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
+    - checkout
+    - run:
+        name: Yarn Install
+        command: yarn install
+    - run:
+        name: Ember Try
+        command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
 workflows:
   version: 2
   ember_try:
-      jobs:
-        - ember_default
+    jobs:
+    - build_with_cache
+    - ember_default:
+      requires:
+        - build_with_cache
 #        - ember_lts_2_4
 #        - ember_lts_2_8
 #        - ember_lts_2_12

@@ -100,8 +100,8 @@ workflows:
   version: 2
   ember_try:
     jobs:
-#    - build_with_cache
-    - ember_default:
+    #    - build_with_cache
+    - ember_default
 #      requires:
 #      - build_with_cache
 #        - ember_lts_2_4

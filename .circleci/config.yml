@@ -17,7 +17,7 @@ jobs:
         key: v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
         paths:
         - ./node_modules
-  ember_default:
+  test_default:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
@@ -101,6 +101,9 @@ workflows:
   ember_try:
     jobs:
     - yarn_and_cache
+    - test_default:
+        requires:
+        - yarn_and_cache
 #    - ember_default
 #        - ember_lts_2_4
 #        - ember_lts_2_8

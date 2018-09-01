@@ -69,36 +69,42 @@ jobs:
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup
-  ember_lts_2_4:
+  test_lts_2_4:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-lts-2.4 --skip-cleanup
-  ember_lts_2_8:
+  test_lts_2_8:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-lts-2.8 --skip-cleanup
-  ember_lts_2_12:
+  test_lts_2_12:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-lts-2.12 --skip-cleanup
@@ -113,7 +119,18 @@ workflows:
     - test_release:
         requires:
         - yarn_and_cache
-#    - ember_default
-#        - ember_lts_2_4
-#        - ember_lts_2_8
-#        - ember_lts_2_12
+    - test_beta:
+        requires:
+        - yarn_and_cache
+    - test_canary:
+        requires:
+        - yarn_and_cache
+    - test_lts_2_12:
+        requires:
+        - yarn_and_cache
+    - test_lts_2_8:
+        requires:
+        - yarn_and_cache
+    - test_lts_2_4:
+        requires:
+        - yarn_and_cache

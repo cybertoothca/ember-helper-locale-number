@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build_and_cache:
+  yarn_and_cache:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
@@ -100,7 +100,7 @@ workflows:
   version: 2
   ember_try:
     jobs:
-    - build_and_cache
+    - yarn_and_cache
 #    - ember_default
 #        - ember_lts_2_4
 #        - ember_lts_2_8

@@ -29,7 +29,9 @@ jobs:
         - v1-deps-
     - run:
         name: Ember Try
-        command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
+        command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup --- ember test --reporter=xunit --silent > tmp/test-results/output.xml
+    - store_test_results:
+        path: tmp/test-results
   test_release:
     docker:
     - image: circleci/node:6.14.4-browsers

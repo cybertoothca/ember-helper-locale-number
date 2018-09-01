@@ -30,36 +30,42 @@ jobs:
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-default --skip-cleanup
-  ember_release:
+  test_release:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-release --skip-cleanup
-  ember_beta:
+  test_beta:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-beta --skip-cleanup
-  ember_canary:
+  test_canary:
     docker:
     - image: circleci/node:6.14.4-browsers
     steps:
     - checkout
-    - run:
-        name: Yarn Install
-        command: yarn install
+    - restore_cache:
+        keys:
+        - v1-deps-{{ .Branch }}-{{ checksum "yarn.lock" }}
+        - v1-deps-{{ .Branch }}-
+        - v1-deps-
     - run:
         name: Ember Try
         command: ./node_modules/.bin/ember try:one ember-canary --skip-cleanup
@@ -102,6 +108,9 @@ workflows:
     jobs:
     - yarn_and_cache
     - test_default:
+        requires:
+        - yarn_and_cache
+    - test_release:
         requires:
         - yarn_and_cache
 #    - ember_default
